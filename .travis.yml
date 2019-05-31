@@ -1,0 +1,25 @@
+language: python
+python:
+  - "3.6"
+
+#coveralls support
+before_install:
+    - pip install pytest pytest-cov pytest-pep8
+    - pip install python-coveralls coverage
+    - pip install nose
+install:
+  - pip install .
+
+#tests
+script:
+  - pytest -v --cov=bidscleaner tests
+
+
+after_success:
+  - coveralls
+
+#to run for selected versions:
+#after_success:
+#  - if [[ $ENV == python=3.4* ]]; then
+#      coveralls;
+#    fi
