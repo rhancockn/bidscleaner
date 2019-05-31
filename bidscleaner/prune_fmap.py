@@ -139,7 +139,7 @@ def write_maps(fmap_info):
             json.dump(info, fp, indent='\t')
 
 
-if __name__ == "__main__":
+def main():
     import argparse
     argparser = argparse.ArgumentParser()
     argparser.add_argument('bids_dir', help="BIDS directory path")
@@ -158,4 +158,5 @@ if __name__ == "__main__":
         fmap_info = match_maps(prefix)
         write_maps(fmap_info)
 
-
+if __name__ == "__main__":
+    main()
